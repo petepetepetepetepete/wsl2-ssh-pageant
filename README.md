@@ -23,8 +23,6 @@ For example, on Ubuntu you can install these by running: `sudo apt install socat
 
 #### Bash
 
-#### Bash/Zsh
-
 *SSH:*
 ```bash
 export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"

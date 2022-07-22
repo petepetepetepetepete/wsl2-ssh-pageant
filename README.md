@@ -55,6 +55,9 @@ fi
 
 ## Troubleshooting
 
+### wsl2-ssh-pageant won't work with Pageant > 0.74
+See https://github.com/BlackReloaded/wsl2-ssh-pageant/issues/23 for details. Current workaround is to install putty 0.74
+
 ### Smartcard is detected in Windows and WSL, but ssh-add -L returns error
 If this is the first time you using yubikey with windows with gpg4win, please follow the instructions in the link
 https://developers.yubico.com/PGP/SSH_authentication/Windows.html

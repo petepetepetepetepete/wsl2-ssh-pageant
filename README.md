@@ -1,6 +1,3 @@
-:warning: I no longer own a Windows PC, so this project has been needless for me. 
-For this reason i will archive this project. :warning:
-
 # wsl2-ssh-pageant
 
 ## Motivation

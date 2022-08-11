@@ -44,8 +44,9 @@ export GPG_AGENT_SOCK="$HOME/.gnupg/S.gpg-agent"
 if ! ss -a | grep -q "$GPG_AGENT_SOCK"; then
   rm -rf "$GPG_AGENT_SOCK"
   wsl2_ssh_pageant_bin="$(wslpath -u "$(wslvar HOMEDRIVE)$(wslvar HOMEPATH)")/.ssh/wsl2-ssh-pageant.exe"
+  gpg_config_path="$(wslvar LOCALAPPDATA | sed -e 's,\\,/,g')"
   if test -x "$wsl2_ssh_pageant_bin"; then
-    (setsid nohup socat UNIX-LISTEN:"$GPG_AGENT_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin --gpg S.gpg-agent" >/dev/null 2>&1 &)
+    (setsid nohup socat UNIX-LISTEN:"$GPG_AGENT_SOCK,fork" EXEC:"$wsl2_ssh_pageant_bin --gpgConfigBasepath '$gpg_config_path/gnupg' --gpg S.gpg-agent" >/dev/null 2>&1 &)
   else
     echo >&2 "WARNING: $wsl2_ssh_pageant_bin is not executable."
   fi
